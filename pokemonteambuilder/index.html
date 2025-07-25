@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Pokemon Team Builder</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="../assets/logo.png" />
+        <!-- Bootstrap icons-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="app.js" defer></script>
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+              <a class="navbar-brand" href="../index.html">
+                <img src="../assets/logo.png" alt="Pocketcraft Logo" style="height: 40px;">
+              </a>
+        
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../spawn-guides.html">Spawn Guides</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="modpacksDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Modpacks
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="modpacksDropdown">
+                              <li><a class="dropdown-item" href="mods/modpacks.html">Best Modpacks</a></li>
+                              <li><a class="dropdown-item" href="mods/top10mods.html">Best Sidemods & Addons</a></li>
+                            </ul>
+                          </li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Team Builder</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Shop</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.youtube.com/@pocketcraft3440?sub_confirmation=1" target="_blank" rel="noopener">
+                              <img src="../assets/yt-logo.webp" alt="YouTube" style="height: 30px; position: relative; top: 0px;">
+                            </a>
+                          </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="text-center my-5">
+                            <h1 class="display-5 fw-bolder text-white mb-2">Build Your Perfect Pokemon Team!</h1>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+<style>
+            .pokemon {
+                display: inline-block;
+                margin: 10px;
+                text-align: center;
+
+            }
+            .pokemon img {
+                width: 100px;
+                height: 100px;
+            }
+            .pokemon:hover {
+    transform: scale(1.25);
+}
+            /* Container to hold the images in a row */
+        .pokemon-lineup {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #pokemon-container {
+            display: flex; 
+            flex-wrap: wrap;                /* Allows items to wrap to new rows if needed */
+            justify-content: space-evenly;   /* Spreads items evenly across each row */
+            align-items: center;             /* Centers items vertically in each row */
+            gap: 20px;                       /* Adjusts spacing between Pokémon cards */
+            padding: 20px;                   /* Adds padding inside the container */
+            max-width: 1200px;               /* Optional: restricts max width for better control */
+            margin: 0 auto;    
+            
+            /* Centers the container itself on the page */
+}
+
+
+/* this is the pokeballs themselves*/
+        .pokemon-format {
+            width: 90%;               /* Takes up 90% of the screen width */
+            max-width: 1200px;        /* Optional max-width for larger screens */
+            margin: 0 auto;           /* Centers the container horizontally */
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            padding: 20px;            /* Inner padding for content spacing */
+            background-color: #f4f4f4; /* Background color */
+            border-radius: 8px;       /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+        }
+
+        /* Style the pokemon */
+        .pokemon-lineup img {
+            width: 150px;
+            height: 150px;
+            padding: 10px;
+            background-color: transparent;
+            cursor: pointer;
+            display: flex;
+            justify-content: center; /* Centers items horizontally */
+            align-items: center;     /* Centers items vertically if needed */
+            gap: 10px;  
+        }
+
+        .pokemon-lineup img.placeholder {
+            opacity: 1.0;
+        }
+        /*holds the pokemon*/
+        .pokemon-holder {
+            width: 90%;               /* Takes up 90% of the screen width */
+            max-width: 1200px;        /* Optional max-width for larger screens */
+            margin: 0 auto;   
+            justify-content: center;  
+            align-items: center;
+            gap: 5px;
+            background-color: #f4f4f4; /* Background color */
+            border-radius: 8px;       /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            
+
+        }
+
+        .filters{
+            width: 90%;               /* Takes up 90% of the screen width */
+            max-width: 1200px;        /* Optional max-width for larger screens */
+            margin: 0 auto;   
+            justify-content: center;  
+            align-items: center;
+            gap: 5px;
+            background-color: #f4f4f4; /* Background color */
+            border-radius: 8px;       /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        }
+
+        #myButton {
+  padding: 10px 20px;
+  background-color: #01afc8; 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#myButton:hover {
+  background-color: #01afc8; 
+}
+
+#clear{
+    padding: 10px 20px;
+  background-color: #01afc8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+
+}
+
+        /* Define the wiggle animation */
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+/* Style for the element */
+.wiggle-element {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+/* Trigger the wiggle effect on hover */
+.wiggle-element:hover {
+    animation: wiggle 0.5s ease-in-out;
+    animation-iteration-count: infinite;
+    cursor: not-allowed;
+
+}
+
+
+
+
+</style>
+
+<div class="pokemon-format">
+    <div>
+        <section class="pokemon-lineup">
+            <img src="assets/pokeball.webp" alt="Slot 1" id="slot1" class="placeholder">
+            <img src="assets/pokeball.webp" alt="Slot 2" id="slot2" class="placeholder">
+            <img src="assets/pokeball.webp" alt="Slot 3" id="slot3" class="placeholder">
+            <img src="assets/pokeball.webp" alt="Slot 4" id="slot4" class="placeholder">
+            <img src="assets/pokeball.webp" alt="Slot 5" id="slot5" class="placeholder">
+            <img src="assets/pokeball.webp" alt="Slot 6" id="slot6" class="placeholder">
+        </section>
+    </div>   
+</div> 
+<div class="filters">
+    <select name="Game" id="game-selector">
+        <option value=""disabled selected>Select A Generation</option>
+        <option value="all">All Pokemon</option>
+        <option value="1">Generation 1</option>
+        <option value="2">Generation 2</option>
+        <option value="3">Generation 3</option>
+        <option value="4">Generation 4</option>
+        <option value="5">Generation 5</option>
+        <option value="6">Generation 6</option>
+        <option value="7">Generation 7</option>
+        <option value="8">Generation 8</option>
+        <option value="9">Generation 9</option>
+    </select>
+     <!-- Randomize button script -->
+    <button id="myButton">Randomize</button>
+    <script>
+        async function myFunction() {
+            const pokemonContainer = document.getElementById('pokemon-container');
+            const pokemonList = Array.from(pokemonContainer.children);
+    
+            const slots = [
+                document.getElementById('slot1'),
+                document.getElementById('slot2'),
+                document.getElementById('slot3'),
+                document.getElementById('slot4'),
+                document.getElementById('slot5'),
+                document.getElementById('slot6')
+            ];
+    
+            if (pokemonList.length === 0) {
+                console.error("No Pokémon found in the container!");
+                return;
+            }
+    
+            // Helper to load a single image
+            function ensureImageLoaded(imgElement) {
+                return new Promise((resolve, reject) => {
+                    // Get the actual source (lazy loading or standard src)
+                    const imgSrc = imgElement.src || imgElement.getAttribute('data-src');
+                    if (!imgSrc) {
+                        reject(new Error("Image source not found"));
+                        return;
+                    }
+    
+                    // Force load the image if lazy loaded
+                    if (imgElement.getAttribute('data-src')) {
+                        imgElement.src = imgElement.getAttribute('data-src');
+                    }
+    
+                    // Check if the image is already loaded
+                    if (imgElement.complete && imgElement.naturalHeight !== 0) {
+                        resolve(imgSrc);
+                    } else {
+                        imgElement.onload = () => resolve(imgSrc); // Wait for load
+                        imgElement.onerror = () => reject(new Error(`Failed to load image: ${imgSrc}`));
+                    }
+                });
+            }
+    
+            try {
+                // Ensure all images in pokemonList are loaded
+                await Promise.all(
+                    pokemonList.map((pokemon) => {
+                        const pokemonImg = pokemon.querySelector('img');
+                        if (pokemonImg) {
+                            return ensureImageLoaded(pokemonImg);
+                        }
+                        return Promise.resolve(); // Skip if no <img> tag
+                    })
+                );
+    
+                // Randomly assign images to slots
+                for (let i = 0; i < 6; i++) {
+                    const randomIndex = Math.floor(Math.random() * pokemonList.length);
+                    const pokemonImg = pokemonList[randomIndex].querySelector('img');
+    
+                    if (pokemonImg) {
+                        console.log(`Assigning ${pokemonImg.src} to slot ${i + 1}`);
+                        slots[i].src = pokemonImg.src;
+                    } else {
+                        console.warn(`No <img> found for Pokémon at index ${randomIndex}`);
+                        slots[i].src = "placeholder.png"; // Fallback image
+                    }
+                }
+            } catch (error) {
+                console.error("Error loading Pokémon images:", error);
+            }
+        }
+    
+        document.getElementById("myButton").addEventListener("click", myFunction);
+    </script>
+    <button id="clear">Clear</button>
+    <script>
+        async function Clear () {
+            slot1 = document.getElementById('slot1')
+            slot2 = document.getElementById('slot2')
+            slot3 = document.getElementById('slot3')
+            slot4 = document.getElementById('slot4')
+            slot5 = document.getElementById('slot5')
+            slot6 = document.getElementById('slot6')
+            slot1.src = "assets/pokeball.webp"
+            slot2.src = "assets/pokeball.webp"
+            slot3.src = "assets/pokeball.webp"
+            slot4.src = "assets/pokeball.webp"
+            slot5.src = "assets/pokeball.webp"
+            slot6.src = "assets/pokeball.webp"
+        }
+
+        document.getElementById("clear").addEventListener("click", Clear);
+        
+    </script>
+    
+</div>
+<div  class="pokemon-holder">
+<div id="pokemon-container"></div>
+</div>
+
+ 
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; Pocketcraft 2025</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>

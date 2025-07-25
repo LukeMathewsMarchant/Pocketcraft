@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Pocketcraft</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/logo.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+       
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+              <a class="navbar-brand" href="index.html">
+                <img src="assets/logo.png" alt="Pocketcraft Logo" style="height: 40px;">
+              </a>
+    
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="spawn-guides.html">Spawn Guides</a></li>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="modpacksDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Modpacks
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="modpacksDropdown">
+                            <li><a class="dropdown-item" href="mods/modpacks.html">Best Modpacks</a></li>
+                            <li><a class="dropdown-item" href="mods/top10mods.html">Best Sidemods & Addons</a></li>
+                          </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="pokemonteambuilder/index.html">Team Builder</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Shop</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.youtube.com/@pocketcraft3440?sub_confirmation=1" target="_blank" rel="noopener">
+                              <img src="assets/yt-logo.webp" alt="YouTube" style="height: 30px; position: relative; top: -4px;">
+                            </a>
+                          </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <br>
+                <br>
+                <br>
+                <br>
+                
+
+<br>
+<br>
+<br>
+
+
+
+
+
+                <a class="btn btn-primary btn-xl text-uppercase" href="#video">Click for awesomeness</a>
+            </div>
+        </header>
+        
+        <div class="title-video">
+          <h1>My YouTube Channel</h1>
+          <a href="https://www.youtube.com/@pocketcraft3440?sub_confirmation=1"><img src="assets/logo.png" alt=""></a>
+  
+         </div>
+
+        <section id="video" style="margin-top: 0; padding-top: 0;">
+        <!-- Show my most recent video-->
+       
+        <div class="title-video">
+            <h1>Checkout My Latest Video!</h1>
+          </div>
+          <div class="video-section">
+            <div id="latest-video">
+              <p>Loading...</p>
+            </div>
+          </div>
+          
+          <script>
+            const API_KEY = 'AIzaSyCW8Wz-H42x4kIudf9umfxqFhpieuChC_8';
+            const CHANNEL_ID = 'UCd5KcaB8IWTjUeeeoGyWZpA'; // Pocketcraft
+            const CACHE_KEY = 'latestVideoCache';
+            const CACHE_EXPIRY = 1000 * 60 * 60 * 24 * 7; // 7 days
+          
+            const fallbackVideo = {
+              title: "Watch This Video Instead!",
+              thumbnail: "https://img.youtube.com/vi/lB8xIi3aLEs/hqdefault.jpg",
+              videoUrl: "https://www.youtube.com/watch?v=lB8xIi3aLEs"
+            };
+          
+            function renderVideo({ title, thumbnail, videoUrl }) {
+              const html = `
+                <div class="video-card">
+                  <a href="${videoUrl}" target="_blank">
+                    <img src="${thumbnail}" alt="${title}">
+                  </a>
+                  <div class="video-title">${title}</div>
+                </div>
+              `;
+              document.getElementById('latest-video').innerHTML = html;
+            }
+          
+            // Step 1: Check localStorage for cache
+            const cached = localStorage.getItem(CACHE_KEY);
+            if (cached) {
+              const parsed = JSON.parse(cached);
+              const age = Date.now() - parsed.timestamp;
+          
+              if (age < CACHE_EXPIRY) {
+                renderVideo(parsed.video);
+              } else {
+                fetchLatestVideo(); // cache expired
+              }
+            } else {
+              fetchLatestVideo(); // no cache
+            }
+          
+            function fetchLatestVideo() {
+              fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&maxResults=10&order=date&type=video&key=${API_KEY}`)
+                .then(response => response.json())
+                .then(data => {
+                  const videoIds = data.items.map(item => item.id.videoId).join(',');
+          
+                  return fetch(`https://www.googleapis.com/youtube/v3/videos?part=contentDetails,snippet&id=${videoIds}&key=${API_KEY}`);
+                })
+                .then(response => response.json())
+                .then(data => {
+                  const longFormVideo = data.items.find(video => {
+                    const duration = video.contentDetails.duration;
+                    const match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+                    const hours = parseInt(match[1] || 0);
+                    const minutes = parseInt(match[2] || 0);
+                    const seconds = parseInt(match[3] || 0);
+                    return hours * 3600 + minutes * 60 + seconds > 60;
+                  });
+          
+                  if (longFormVideo) {
+                    const video = {
+                      title: longFormVideo.snippet.title,
+                      thumbnail: longFormVideo.snippet.thumbnails.high.url,
+                      videoUrl: `https://www.youtube.com/watch?v=${longFormVideo.id}`
+                    };
+                    renderVideo(video);
+                    localStorage.setItem(CACHE_KEY, JSON.stringify({
+                      video,
+                      timestamp: Date.now()
+                    }));
+                  } else {
+                    renderVideo(fallbackVideo);
+                  }
+                })
+                .catch(err => {
+                  console.error("YouTube API Error:", err);
+                  renderVideo(fallbackVideo);
+                });
+            }
+          </script>
+          
+          </section> 
+
+       <!-- Cards with home pages <section class="page-section" id="services">  --> 
+       <div class="title-video">
+        <h1>Channel Members Get Access To Exclusive Perks</h1>
+        <h3>Click <a href="https://www.youtube.com/channel/UCd5KcaB8IWTjUeeeoGyWZpA/join">here</a> to help support the channel</h3>
+       </div>
+        <div class="card-container">
+            <div class="card">
+              <a href="https://www.youtube.com/channel/UCd5KcaB8IWTjUeeeoGyWZpA/join">
+              <img src="assets/mascot1.png" alt="Card 1">
+            </a>
+              <div class="card-body">
+                <h3>Pokemon Mascot</h3>
+              </div>
+            </div>
+          
+            <div class="card">
+              <a href="https://www.youtube.com/channel/UCd5KcaB8IWTjUeeeoGyWZpA/join">
+              <img src="assets/tcgp-menu.png" alt="Card 2">
+            </a>
+              <div class="card-body">
+                <h3>Friends Across Platforms</h3>
+              </div>
+            </div>
+          
+            <div class="card">
+              <a href="https://www.youtube.com/channel/UCd5KcaB8IWTjUeeeoGyWZpA/join">
+              <img src="assets/exclusive-videos.webp" alt="Card 3">
+            </a>
+              <div class="card-body">
+                <h3>Exclusive Videos</h3>
+              </div>
+            </div>
+          </div>
+       
+     
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container my-footer">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Pocketcraft 2025</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    
+                </div>
+            </div>
+        </footer>
+        
+     
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>

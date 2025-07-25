@@ -1,0 +1,223 @@
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9fb;
+    color: #333;
+    line-height: 1.7;
+    margin: 0;
+    padding-top: 80px; /* Adjust this value to match your navbar height */
+   
+  }
+
+  article {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    border-radius: 12px;
+  }
+
+  h1, h2 {
+    color: #2c3e50;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid #4aa3df;
+    padding-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    border-left: 5px solid #4aa3df;
+    padding-left: 0.5rem;
+  }
+
+  ul {
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  a {
+    color: #3182ce;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  iframe {
+   
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    margin: 1rem 0;
+  }
+
+  .video-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+  }
+
+  footer {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    article {
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+/* Navbar Base */
+#mainNav {
+    background-color: #212529; /* Solid black */
+    transition: all 0.3s ease-in-out;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    z-index: 1030; /* Ensures it stays above other content */
+  }
+  
+  /* Navbar Brand/Links */
+  #mainNav .navbar-nav .nav-link {
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  #mainNav .navbar-nav .nav-link:hover,
+  #mainNav .navbar-nav .nav-link:focus {
+    color: #4aa3df; /* Light blue on hover */
+  }
+  
+  /* Navbar Toggler Button (Mobile Menu) */
+  .navbar-toggler {
+    border: none;
+    background-color: #222;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  /* Fix for navbar staying visible (sticky effect) */
+  .navbar.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  /* YouTube icon alignment */
+  .navbar-nav .nav-item img {
+    vertical-align: middle;
+    height: 28px;
+    margin-top: -3px;
+  }
+  
+  .card-container {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .card-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .video-section {
+    max-width: 800px;
+    margin: 3rem auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .video-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .video-card {
+    margin-top: 1.5rem;
+  }
+  
+  .video-card img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s;
+  }
+  
+  .video-card img:hover {
+    transform: scale(1.02);
+  }
+  
+  .video-title {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: black;
+  }
+  
+  @media (max-width: 600px) {
+    .video-section {
+      margin: 1rem;
+      padding: 1rem;
+    }
+  }
+  
+  .title-video {
+    color: black;
+    font-size: 500%;
+    text-align: center;
+    margin: 3rem auto;
+  }
+  

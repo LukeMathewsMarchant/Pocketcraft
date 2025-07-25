@@ -10953,6 +10953,18 @@ header.masthead {
   background-position: center center;
   background-size: cover;
 }
+@media (max-width: 768px) {
+  header.masthead {
+    background-size: contain;
+    background-position: top;
+    background-image: url("../assets/img/mobile.png");
+    background-repeat: no-repeat;
+    height: auto;
+    min-height: 100vh;
+    padding-top: 0px; /* Adjust depending on your nav height */
+   
+  }
+}
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
   font-style: italic;

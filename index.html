@@ -12,9 +12,13 @@
 </script>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Pocketcraft</title>
+        <meta name="description" content="Pocketcraft is the BEST Cobblemon community hub! Explore spawn guides, top modpacks, and resources from the official Pocketcraft YouTube channel." />
+        <meta name="author" content="Pocketcraft" />
+          <meta name="keywords" content="Cobblemon, Cobblemon Youtubers, Cobblemon guides, Cobblemon modpacks, cobblemon spawn guides">
+        <title>Pocketcraft - The Ultimate Cobblemon Guide</title>
+    
+      
+
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/logo.png" />
         <!-- Font Awesome icons (free version)-->
@@ -28,40 +32,66 @@
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-            <div class="container">
-              <a class="navbar-brand" href="index.html">
-                <img src="assets/logo.png" alt="Pocketcraft Logo" style="height: 40px;">
-              </a>
-    
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+       <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/logo.png" alt="Pocketcraft Logo" style="height: 40px;">
+      </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="spawn-guides.html">Spawn Guides</a></li>
                 
-                    <i class="fas fa-bars ms-1"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="spawn-guides.html">Spawn Guides</a></li>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" id="modpacksDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Modpacks
-                          </a>
-                          <ul class="dropdown-menu" aria-labelledby="modpacksDropdown">
-                            <li><a class="dropdown-item" href="mods/modpacks.html">Best Modpacks</a></li>
-                            <li><a class="dropdown-item" href="mods/top10mods.html">Best Sidemods & Addons</a></li>
-                          </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="pokemonteambuilder/index.html">Team Builder</a></li>
-                        <li class="nav-item"><a class="nav-link" href="https://pocket-craft-shop.fourthwall.com" target="_blank" rel="noopener">Shop</a></li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.youtube.com/@pocketcraft3440?sub_confirmation=1" target="_blank" rel="noopener">
-                              <img src="assets/yt-logo.webp" alt="YouTube" style="height: 30px; position: relative; top: -4px;">
-                            </a>
-                          </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+                <!-- Desktop dropdown -->
+                <li class="nav-item dropdown d-lg-block d-none">
+                  <a class="nav-link dropdown-toggle" href="#" id="modpacksDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Modpacks
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="modpacksDropdown">
+                    <li><a class="dropdown-item" href="mods/modpacks.html">Best Modpacks</a></li>
+                    <li><a class="dropdown-item" href="mods/top10mods.html">Best Sidemods & Addons</a></li>
+                  </ul>
+                </li>
+                
+                <!-- Mobile separate links -->
+                <li class="nav-item d-lg-none">
+                    <a class="nav-link" href="mods/modpacks.html">Best Modpacks</a>
+                </li>
+                <li class="nav-item d-lg-none">
+                    <a class="nav-link" href="mods/top10mods.html">Best Sidemods & Addons</a>
+                </li>
+                
+                <li class="nav-item"><a class="nav-link" href="pokemonteambuilder/index.html">Team Builder</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://pocket-craft-shop.fourthwall.com" target="_blank" rel="noopener">Shop</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.youtube.com/@pocketcraft3440?sub_confirmation=1" target="_blank" rel="noopener">
+                      <img src="assets/yt-logo.webp" alt="YouTube" style="height: 30px; position: relative; top: -4px;">
+                    </a>
+                  </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Optional: Add subtle visual styling for mobile modpack links -->
+<style>
+/* Optional: Make mobile modpack links slightly indented to show they're related */
+@media (max-width: 991.98px) {
+    .navbar-nav .nav-item.d-lg-none .nav-link {
+        padding-left: 2rem;
+        color: rgba(255,255,255,.75);
+        font-size: 0.9em;
+    }
+    
+    .navbar-nav .nav-item.d-lg-none .nav-link:hover {
+        color: rgba(255,255,255,.9);
+    }
+}
+</style>
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
@@ -270,10 +300,11 @@
         
      
         </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+       
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+         <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
